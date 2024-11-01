@@ -62,16 +62,16 @@ public class Main{
             HuggingFaceText hf = new HuggingFaceText.Builder("Text Model Example: mistralai/Mistral-7B-Instruct-v0.3 is a good option", "API Key").build();
 
             HuggingFaceText.ChatOptions options = new HuggingFaceText.ChatOptions()
-                            .setTemperature(0.5) # how serious or how funny
-                            .setMaxTokens(1024) # maximum length of the answer
+                            .setTemperature(0.5) // how serious or how funny
+                            .setMaxTokens(1024) // maximum length of the answer
                             .setTopP(0.7)
-                            .setStream(true); # whether the messages are sent in fractions or all at once (fractions is slightly faster, but the response is still complete at the end)
+                            .setStream(true); // whether the messages are sent in fractions or all at once (fractions is slightly faster, but the response is still complete at the end)
 
             List<Map<String, String>> messages = new ArrayList<>();
-                    messages.add(Map.of("role", "system", "content", "System Prompt Here")); # Description of what the bot is like. For example: You are a bot on my Discord server that helps people with programming questions.
-                    messages.add(Map.of("role", "user", "content", "User Prompt Here")); # The user's prompt. For example: generate an example Python script.
+                    messages.add(Map.of("role", "system", "content", "System Prompt Here")); // Description of what the bot is like. For example: You are a bot on my Discord server that helps people with programming questions.
+                    messages.add(Map.of("role", "user", "content", "User Prompt Here")); // The user's prompt. For example: generate an example Python script.
 
-            String result = hf.chat(messages, options); # The result of the request
+            String result = hf.chat(messages, options); // The result of the request
 
             System.out.println(result);
         } catch (Exeption e) {
@@ -89,7 +89,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             HuggingFaceImage hf = new HuggingFaceImage.Builder("Image Model Example: XLabs-AI/flux-RealismLora is a good option", "API Key").build();
-            byte[] image = hf.image("Prompt Here"); # what should the picture look like?
+            byte[] image = hf.image("Prompt Here"); // what should the picture look like?
             
             String randomId = UUID.randomUUID().toString();
             String fileName = randomId + ".png";
